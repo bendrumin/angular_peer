@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Peer Project</title>
+    <script src="vendors/angular.js" charset="utf-8"></script>
+    <script src="vendors/jquery.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="WelcomeController as welcome">
+      Name<input type="text" ng-model="name"></input>
+      Message<input type="text" name="" value="" ng-model="message"></input>
+      <button type="button" name="button" ng-click="welcome.greet(name, message)">Submit</button>
+
+      <br><br>
+      <div ng-repeat="string in welcome.array">
+        <p>{{string}}</p>
+        <button type="button" name="button" ng-click="welcome.delete($index)">Delete!</button>
+      </div>
+    </div>
+  </body>
+</html>
