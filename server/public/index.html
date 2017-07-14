@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Peer Project</title>
-    <script src="vendors/angular.js" charset="utf-8"></script>
-    <script src="vendors/jquery.js" charset="utf-8"></script>
-    <script src="scripts/client.js" charset="utf-8"></script>
-  </head>
-  <body ng-app="myApp">
-    <div ng-controller="WelcomeController as welcome">
-      Name<input type="text" ng-model="name"></input>
-      Message<input type="text" name="" value="" ng-model="message"></input>
-      <button type="button" name="button" ng-click="welcome.greet(name, message)">Submit</button>
+<head>
+  <meta charset="utf-8">
+  <title>Angular Peer Project</title>
+  <script src="vendors/angular.js" charset="utf-8"></script>
+  <script src="vendors/jquery.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/bootstrap.css">
 
-      <br><br>
-      <div ng-repeat="string in welcome.array">
-        <p>{{string}}</p>
-        <button type="button" name="button" ng-click="welcome.delete($index)">Delete!</button>
+</head>
+<body ng-app="myApp">
+  <div class="container">
+    <div ng-controller="WelcomeController as welcome">
+      <div class="row">
+        <div class="col-md-6"><form>
+          <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" ng-model="name"></input>
+          </div>
+          <div class="form-group">
+            <label for="Message">Message</label>
+            <input type="text" name="" class="form-control" value="" ng-model="message"></input>
+          </div>
+          <button type="button" name="button" class="btn btn-primary" ng-click="welcome.greet(name, message)">Submit</button>
+        </form>
+      </div>
+
+        <div class="col-md-6">
+          <div ng-repeat="string in welcome.array track by $index" class="Stuff">
+            <p class="weAreAwesome">{{string}}</p>
+            <button type="button" name="button" class="btn btn-danger btn-lg" ng-click="welcome.delete($index)">Delete!</button>
+          </div>
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
